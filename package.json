@@ -1,0 +1,29 @@
+{
+  "name": "gerenciamento-escolar-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaomaNogueira/gerenciamento-escolar-api.git"
+  },
+  "author": "Laoma Nogueira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaomaNogueira/gerenciamento-escolar-api/issues"
+  },
+  "homepage": "https://github.com/LaomaNogueira/gerenciamento-escolar-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-routes": "^1.0.1",
+    "express-validator": "^6.12.2",
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.13",
+    "sequelize": "^6.6.5"
+  }
+}
