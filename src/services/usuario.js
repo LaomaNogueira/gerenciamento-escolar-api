@@ -1,4 +1,4 @@
-const { endereco } = require("../../models");
+const { endereco } = require("../../models/");
 const EnderecoService = require('./endereco');
 const Op = require('sequelize').Op;
 
@@ -13,6 +13,26 @@ class UsuarioService {
         const usuario = await this.usuario.findAll({ include: [{all: true}] });
         return usuario;
     }
+
+    async listarPorTipoDeUsuario(tipoId) {
+        const usuario = await this.usuario.findAll({ 
+            include: [{all: true}],
+            where: [
+                { tipo_de_usuario_id: tipoId },
+            ]
+        });
+        return usuario;
+    } 
+    
+    async listarUsuarioPorId(id) {
+        const usuario = await this.usuario.findByPk(id, { include: [{all: true}] });
+
+        if(!usuario) {
+            return [];
+        }
+
+        return usuario;
+    } 
 
     async cadastrar(dadosUsuario) {
         const usuario = await this.usuario.findOne({
@@ -53,7 +73,12 @@ class UsuarioService {
             dadosUsuario.endereco_id = endereco.id;
         }
         
-        return await this.usuario.update(dadosUsuario, { where: { id: id } });
+        const usuario = await this.usuario.update(dadosUsuario, { where: { id: id } });
+        console.log(usuario[0]);
+        if(usuario[0] == 0) {
+            throw new Error('Usuário não encontrado!');
+        }
+        return usuario;
     }
 
     async deletar(id) {
