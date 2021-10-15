@@ -7,14 +7,16 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 
 const Usuario = require('./usuario');
+const TipoDeUsuario = require('./tipo-de-usuario');
 const Endereco = require('./endereco');
 
 const usuario = Usuario(sequelize, Sequelize.DataTypes);
+const tipoDeUsuario = TipoDeUsuario(sequelize, Sequelize.DataTypes);
 const endereco = Endereco(sequelize, Sequelize.DataTypes);
 
 const db = {
   usuario,
-  // tipoDeUsuario,
+  tipoDeUsuario,
   endereco,
 };
 

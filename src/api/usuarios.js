@@ -52,6 +52,16 @@ router.get('/', async (req, res) => {
     res.status(200).json(usuario);
 })
 
+router.get('/tipo/:tipoId', async (req, res) => {
+    const usuario = await usuarioService.listarPorTipoDeUsuario(req.params.tipoId);
+    res.status(200).json(usuario);
+})
+
+router.get('/:id', async (req, res) => {
+    const usuario = await usuarioService.listarUsuarioPorId(req.params.id);
+    res.status(200).json(usuario);
+})
+
 router.put('/:id',
     check('telefone').if(body('telefone').exists())
         .trim()
