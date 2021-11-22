@@ -112,6 +112,7 @@ Por enquanto, o CRUD de usuários está funcional.
 ### Testes
 
 Com a API em funcionamento, vamos rodar os testes via [Insomnia](https://insomnia.rest/download) (ou algum similar). Seguem os testes:
+![API-gerenciamento-escolar](https://user-images.githubusercontent.com/88911231/142934131-f45aa936-b409-4549-a0ce-f6f2ace23235.gif)
 
 <hr>
 
