@@ -32,6 +32,7 @@ router.post('/',
     async (req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
+            console.log(errors.array())
             return res.status(400).json({errors: errors.array()});
         }
 
@@ -49,6 +50,11 @@ router.post('/',
 
 router.get('/', async (req, res) => {
     const usuario = await usuarioService.listar();
+    res.status(200).json(usuario);
+})
+
+router.get('/inativos', async (req, res) => {
+    const usuario = await usuarioService.listarInativos();
     res.status(200).json(usuario);
 })
 
@@ -108,5 +114,17 @@ router.delete('/:id', async (req, res) => {
         res.status(400).send(erro.message);
     }
 })
+
+router.put('/inativos/:id', async (req, res) => {
+    
+    try {
+        await usuarioService.restauraInativos(req.params.id);
+        res.status(200).send('Usuário restaurado com sucesso!');
+    } catch(erro) {
+        res.status(400).send(erro.message);
+    }
+})
+
+
 
 module.exports = router;

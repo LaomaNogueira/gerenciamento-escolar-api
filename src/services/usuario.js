@@ -41,11 +41,15 @@ class UsuarioService {
                     { cpf: dadosUsuario.cpf },
                     { email: dadosUsuario.email }
                 ]
-            }
+            },
+            paranoid: false  //busca independente de ter sido deletado
         });
 
         if(usuario) {
-            throw new Error('Já existe um usuário cadastrado com esse email ou CPF!');
+            if(usuario.deletedAt) {
+                throw new Error('Já existe um usuário inativo cadastrado com esse email ou CPF!');
+            }
+            throw new Error('Já existe um usuário ativo cadastrado com esse email ou CPF!');
         }
         
         const endereco = await enderecoService.cadastrar(dadosUsuario.endereco);
@@ -83,6 +87,21 @@ class UsuarioService {
 
     async deletar(id) {
         return await this.usuario.destroy({ where: { id: id } });
+    }
+
+    async listarInativos() {
+        const usuario = await this.usuario.findAll({ 
+            where: {
+                deletedAt: {[Op.not]: null}
+            },
+            include: [{all: true}], 
+            paranoid: false 
+        });
+        return usuario;
+    }
+
+    async restauraInativos(id) {
+        return await this.usuario.restore({ where: { id: id } });
     }
 }
 
