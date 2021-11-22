@@ -1,11 +1,10 @@
 <h1 align="center"> API PARA GERENCIAMENTO ESCOLAR </h1>
 
-## 📕 Índice
+## Índice
 
 - [Sobre](#Sobre)
 - [Tecnologias](#Tecnologias)
 - [Iniciando o projeto](#Iniciando)
-- [Licença](#Licença)
 - [Contato](#Contato)
 
 <hr>
@@ -19,7 +18,7 @@ Por enquanto, o CRUD de usuários está funcional.
 </p>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=⚠ EM%20DESENVOLVIMENTO ⚠&color=&style=for-the-badge"/>
+<img src="http://img.shields.io/static/v1?label=STATUS&message= EM%20DESENVOLVIMENTO &color=&style=for-the-badge"/>
 </p>
 
 ### Features
@@ -54,9 +53,9 @@ Por enquanto, o CRUD de usuários está funcional.
 
 <!-- TECHNOLOGIES -->
 
-## Iniciando
+## Iniciando o projeto
 
-### 📋 Pré-requisitos
+### Pré-requisitos
 
 - Node JS
 
