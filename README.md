@@ -4,7 +4,7 @@
 
 - [Sobre](#Sobre)
 - [Tecnologias](#Tecnologias)
-- [Iniciando o projeto](#Iniciando)
+- [Iniciando o projeto](#Iniciando%20o%20projeto)
 - [Contato](#Contato)
 
 <hr>
